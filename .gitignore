@@ -2,3 +2,5 @@ __pycache__
 *.env
 weather_icon.png
 glade/main.glade~
+images/hour_icon/*
+images/days_icon/*
