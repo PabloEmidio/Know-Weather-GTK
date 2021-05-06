@@ -60,6 +60,11 @@ class Handler:
         self.day_1_icon = builder.get_object('day_1_icon')
         self.day_1_temp_max = builder.get_object('day_1_temp_max')
         self.day_1_temp_min = builder.get_object('day_1_temp_min')
+        
+        self.day_2_name = builder.get_object('day_2_name')
+        self.day_2_icon = builder.get_object('day_2_icon')
+        self.day_2_temp_max = builder.get_object('day_2_temp_max')
+        self.day_2_temp_min = builder.get_object('day_2_temp_min')
 
         
     def onDestroy(self, *args):
@@ -81,7 +86,7 @@ class Handler:
             self.city_text.set_text(current_search['current']['condition']['text'])
             self.main_temp.set_text(str(int(current_search['current']['temp_c'])) + '°')
             # self.temp_simbol.set_text(self.which_temp_simbol_is)
-            weekday = datetime.date.fromisoformat(current_search['forecast']['forecastday'][0]['date']).strftime('%A')
+            weekday = now.strftime('%A')
             self.weekday_name.set_text(weekday)
             self.weekday_name_today.set_text('Today')
             
@@ -90,6 +95,7 @@ class Handler:
             self.temp_today_max.set_text(today_max_temp)
             self.temp_today_min.set_text(today_min_temp)
             
+            ### Hours informations ######################################################
             self.hour_1_now.set_text('Now')
             if int(chance_of_rain := current_search['forecast']['forecastday'][0]['hour'][current_hour]['chance_of_rain'])>0:
                 self.hour_1_chance_of_rain.set_text(str(chance_of_rain) + '%')
@@ -119,24 +125,21 @@ class Handler:
                 self.hour_5_chance_of_rain.set_text(str(chance_of_rain) + '%')
             self.hour_5_icon.set_from_file('./images/hour_icon/5.png')
             self.hour_5_temp.set_text(str(int(current_search['forecast']['forecastday'][0]['hour'][current_hour+4]['temp_c'])))
-                        
-                                    
             
+            ##################################################################
             
-            # avg_temp = current_search['forecast']['forecastday'][0]['day']['avgtemp_c']
+            ################## days informations
+            
+            self.day_1_name.set_text(datetime.datetime.fromisoformat(current_search['forecast']['forecastday'][1]['date']).strftime('%A'))
+            self.day_1_icon.set_from_file('./images/days_icon/1.png')
+            self.day_1_temp_max.set_text(str(int(current_search['forecast']['forecastday'][1]['day']['maxtemp_c'])))
+            self.day_1_temp_min.set_text(str(int(current_search['forecast']['forecastday'][1]['day']['mintemp_c'])))
 
-            # self.max_bar.set_max_value(max_temp + 10)
-            # self.min_bar.set_max_value(max_temp + 10)
-            # self.avg_bar.set_max_value(max_temp + 10)
+            self.day_2_name.set_text(datetime.datetime.fromisoformat(current_search['forecast']['forecastday'][2]['date']).strftime('%A'))
+            self.day_2_icon.set_from_file('./images/days_icon/2.png')
+            self.day_2_temp_max.set_text(str(int(current_search['forecast']['forecastday'][2]['day']['maxtemp_c'])))
+            self.day_2_temp_min.set_text(str(int(current_search['forecast']['forecastday'][2]['day']['mintemp_c'])))
             
-            # self.max_bar.set_value(max_temp)
-            # self.min_bar.set_value(min_temp)
-            # self.avg_bar.set_value(avg_temp)
-            
-            # self.max_temp.set_text(str(max_temp) + ' / ' + str(max_temp +10) + 'ºC ')
-            # self.min_temp.set_text(str(min_temp) + ' / ' + str(max_temp+10) + 'ºC ')
-            # self.avg_temp.set_text(str(avg_temp) + ' / ' + str(max_temp +10) + 'ºC ')
-           
         except Exception as error:
             print(f'error {error}')
 
