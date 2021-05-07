@@ -1,4 +1,4 @@
-import requests, os
+import requests
 from dotenv import dotenv_values
 from shutil import copyfileobj
 
