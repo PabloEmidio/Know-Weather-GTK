@@ -1,7 +1,7 @@
 <h1 align="center">Know-Weather-GTK</h1>
-<h2 align="center" >
+<h2 align="center">
 GTK interface to see the cities's weather informations<br><br>
-    <a href="https://github.com/PabloEmidio/Know-Weather-GTK/stargazers">/<img alt="GitHub stars" src="https://img.shields.io/github/stars/PabloEmidio/Know-Weather-GTK?style=social"></a>
+    <a href="https://github.com/PabloEmidio/Know-Weather-GTK/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PabloEmidio/Know-Weather-GTK?style=social"></a>
     <a href="https://github.com/PabloEmidio"><img alt="GitHub followers" src="https://img.shields.io/github/followers/PabloEmidio?label=Follow%20me&style=social"></a>
 </h2>
 
